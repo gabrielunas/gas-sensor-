@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastramento</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0074D9;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            color: #555;
+            font-size: 16px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #alertMessage {
+            margin-top: 10px;
+        }
+
+        .success-message {
+            color: #28a745;
+        }
+
+        .error-message {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastramento</h1>
+        <form onsubmit="sendAlert(); return false;">
+            <label for="name">Seu Nome:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Seu Endereço de E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <input type="submit" value="Cadastrar">
+            <div id="alertMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        function sendAlert() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            // Simulação de envio de alerta
+            var success = true; // Defina como false para simular um erro
+
+            var alertMessage = document.getElementById("alertMessage");
+            alertMessage.innerText = "";
+
+            if (success) {
+                alertMessage.className = "success-message";
+                alertMessage.innerText = "Cadastro realizado com sucesso!";
+            } else {
+                alertMessage.className = "error-message";
+                alertMessage.innerText = "Erro ao realizar o cadastro. Por favor, tente novamente.";
+            }
+        }
+    </script>
+</body>
+</html>
+
